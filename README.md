@@ -1,4 +1,4 @@
-This is a repro project for https://github.com/spring-projects/spring-boot/issues/15397: Default values of Kotlin-based ConfigurationProperties are not documented properly.
+This is a repro project for constructor-based properties default values related to https://github.com/spring-projects/spring-boot/issues/15397.
 
 To reproduce the issue:
  - Run `./gradlew kaptKotlin`
@@ -9,3 +9,5 @@ To double check it works as expected with annotations (which should be not neede
  - Uncomment `@DefaultValue("foo")`
  - Run `./gradlew kaptKotlin`
  - Check `build/tmp/kapt3/classes/main/META-INF/spring-configuration-metadata.json` it contains `"defaultValue": "foo"`
+ 
+ You can also check it works as expected with regular `var` properties.

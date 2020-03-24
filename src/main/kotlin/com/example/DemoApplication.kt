@@ -11,12 +11,16 @@ import org.springframework.boot.runApplication
 @EnableConfigurationProperties(DemoProperties::class)
 class DemoKotlinDefaultValuesApplication
 
+// Does not work out-of-the-box with constructor based properties and require @DefaultValue
 @ConstructorBinding
 @ConfigurationProperties("demo")
-class DemoProperties(
-		//@DefaultValue("foo")
-		val title: String = "foo"
-)
+class DemoProperties(val title: String = "foo")
+
+// Works with
+// @ConfigurationProperties("demo")
+// class DemoProperties {
+//	 var title: String = "foo"
+// }
 
 fun main(args: Array<String>) {
 	runApplication<DemoKotlinDefaultValuesApplication>(*args)
