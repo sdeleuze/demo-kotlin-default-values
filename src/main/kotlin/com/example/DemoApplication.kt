@@ -13,7 +13,10 @@ class DemoKotlinDefaultValuesApplication
 
 @ConstructorBinding
 @ConfigurationProperties("demo")
-class DemoProperties(val title: String = "foo")
+class DemoProperties(
+		//@DefaultValue("foo")
+		val title: String = "foo"
+)
 
 fun main(args: Array<String>) {
 	runApplication<DemoKotlinDefaultValuesApplication>(*args)
